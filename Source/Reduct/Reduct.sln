@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reduct", "Reduct\Reduct.csproj", "{E440288C-82BA-424F-8EC7-23BF28F18582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reduct.DataAccess", "Reduct.DataAccess\Reduct.DataAccess.csproj", "{0CA81619-956A-4543-B280-AB3B9E6F43D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E440288C-82BA-424F-8EC7-23BF28F18582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E440288C-82BA-424F-8EC7-23BF28F18582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E440288C-82BA-424F-8EC7-23BF28F18582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E440288C-82BA-424F-8EC7-23BF28F18582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA81619-956A-4543-B280-AB3B9E6F43D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA81619-956A-4543-B280-AB3B9E6F43D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA81619-956A-4543-B280-AB3B9E6F43D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA81619-956A-4543-B280-AB3B9E6F43D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
