@@ -11,10 +11,10 @@ RUN dotnet restore "Reduct.DataAccess/Reduct.DataAccess.csproj"
 RUN dotnet restore "Reduct/Reduct.csproj"
 COPY . .
 WORKDIR "/src/Reduct"
-RUN dotnet build "Reduct.csproj" -o /app/build
+RUN dotnet build "Reduct.csproj" -c Release -o /app/build
 
 FROM build as publish
-RUN dotnet publish "Reduct.csproj" -o /app/publish
+RUN dotnet publish "Reduct.csproj" -c Release -o /app/publish
 
 FROM base as final
 WORKDIR /app

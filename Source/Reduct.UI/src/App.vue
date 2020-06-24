@@ -3,7 +3,7 @@
     <reduct-form @getShortcut="getShortcut" />
     <p v-if="loading">Loading...</p>
     <br />
-    <a target="blank" :href="result" v-if="result">{{ result }}</a>
+    <a class="app__link-result" target="blank" :href="result" v-if="result">{{ result }}</a>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default Vue.extend({
       this.loading = true;
       axios
         .post<Response>(
-          `http://${window.location.hostname}:5000/register`,
+          `http://${window.location.hostname}:6766/register`,
           { url: url },
           {
             onDownloadProgress: () => (this.loading = false),
@@ -58,5 +58,10 @@ export default Vue.extend({
 
 body {
   background-color: #add8e6;
+}
+
+.app__link-result {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
 }
 </style>

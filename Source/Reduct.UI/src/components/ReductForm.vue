@@ -1,6 +1,7 @@
 <template>
   <div>
     <form class="reduct-main__form" @submit="validate">
+      <p>Enter your URL to short it</p>
       <input
         class="reduct-main__form__input"
         type="url"
@@ -10,10 +11,10 @@
       <button class="reduct-main__form__button" @click="requestForShortcut">
         Submit
       </button>
-      <p class="reduct-main__form__error" v-if="!valid">
-        Error. Link not valid
-      </p>
     </form>
+    <p class="reduct-main__form__error" v-if="!valid">
+      Error. Link is not valid
+    </p>
   </div>
 </template>
 
@@ -33,7 +34,8 @@ export default Vue.extend({
       this.valid = regex.test(this.url);
       return this.valid;
     },
-    requestForShortcut() {
+    requestForShortcut(e: Event) {
+      e.preventDefault();
       if (this.valid) this.$emit("getShortcut", this.url);
     }
   }
@@ -48,15 +50,17 @@ export default Vue.extend({
   margin: auto;
   border: 1px solid black;
   border-radius: 10px;
+
+  overflow: hidden;
 }
 
 .reduct-main__form__input {
-  width: 20em;
+  width: 50%;
   height: 2em;
 
   font-size: 18px;
 
-  margin-top: 4%;
+  text-align: center;
 }
 
 .reduct-main__form__button {
@@ -65,6 +69,11 @@ export default Vue.extend({
   width: 5em;
   height: 3em;
 
+  color: black;
+  border: 1px solid black;
+
+  border-radius: 10px;
+
   background-color: #00bfff;
 }
 
@@ -72,5 +81,10 @@ export default Vue.extend({
   font-size: 18px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 </style>
