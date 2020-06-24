@@ -7,16 +7,13 @@ services:
     ports:
       - 6379
     environment: 
-      - REDIS_PASSWORD=tdzvkywdU5CG
+      - REDIS_PASSWORD=<PASS>
     networks: 
       - reduct_network
 
   reductapi:
     container_name: reductapi
     image: reductapi
-    build:
-      context: './Reduct/'
-      dockerfile: './Dockerfile'
     ports:
       - 6766:80
     networks:
@@ -25,9 +22,6 @@ services:
   reductui:
     container_name: reductui
     image: reductui
-    build:
-      context: './Reduct.UI/'
-      dockerfile: './Dockerfile'
     ports: 
       - 6767:8080
     networks: 
