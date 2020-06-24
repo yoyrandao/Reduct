@@ -3,7 +3,9 @@
     <reduct-form @getShortcut="getShortcut" />
     <p v-if="loading">Loading...</p>
     <br />
-    <a class="app__link-result" target="blank" :href="result" v-if="result">{{ result }}</a>
+    <a class="app__link-result" target="blank" :href="result" v-if="result">{{
+      result
+    }}</a>
   </div>
 </template>
 

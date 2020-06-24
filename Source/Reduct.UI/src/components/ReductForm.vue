@@ -12,7 +12,7 @@
         Submit
       </button>
     </form>
-    <p class="reduct-main__form__error" v-if="!valid">
+    <p class="reduct-main__form__error" v-if="isError">
       Error. Link is not valid
     </p>
   </div>
@@ -23,10 +23,13 @@ import Vue from "vue";
 export default Vue.extend({
   data: () => ({
     url: "",
-    valid: false
+    valid: false,
+    first: true
   }),
   methods: {
     validate() {
+      this.first = false;
+
       const regex = new RegExp(
         /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_+.~#?&//=]*)/
       );
@@ -37,6 +40,11 @@ export default Vue.extend({
     requestForShortcut(e: Event) {
       e.preventDefault();
       if (this.valid) this.$emit("getShortcut", this.url);
+    }
+  },
+  computed: {
+    isError() {
+      return !this.valid && !this.first;
     }
   }
 });

@@ -28,10 +28,6 @@ namespace Reduct.Controllers
 				return Ok(ResponseFactory.Create(false, "Wrong url format"));
 
 			var hashedValue = _hashProvider.GetHashed(contract.Url);
-
-			if (await _linkRepository.Exists(hashedValue))
-				return Ok(ResponseFactory.Create(false, "Link already exists"));
-
 			await _linkRepository.AddEntry(hashedValue, contract.Url);
 
 			return Ok(ResponseFactory.Create(true, $"{Request.Scheme}://{Request.Host}/{hashedValue}"));
