@@ -8,5 +8,13 @@
       <ProjectReference Include="..\Reduct.DataAccess\Reduct.DataAccess.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Update="appsettings.Release.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
 
 </Project>

@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - 6379
+    environment: 
+      - REDIS_PASSWORD=tdzvkywdU5CG
+    networks: 
+      - reduct_network
+
+  api:
+    container_name: reductAPI
+    image: reductapi
+    ports:
+      - "6371:80"
+    networks:
+      - reduct_network
+
+networks: 
+  reduct_network:
+    driver: bridge

@@ -22,17 +22,17 @@ namespace Reduct.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> GetShorted([FromBody] string fullUrl)
+		public async Task<IActionResult> GetShorted([FromBody] UrlContract contract)
 		{
-			if (!_validator.Validate(fullUrl))
+			if (!_validator.Validate(contract.Url))
 				return Ok(ResponseFactory.Create(false, "Wrong url format"));
 
-			var hashedValue = _hashProvider.GetHashed(fullUrl);
+			var hashedValue = _hashProvider.GetHashed(contract.Url);
 
 			if (await _linkRepository.Exists(hashedValue))
 				return Ok(ResponseFactory.Create(false, "Link already exists"));
 
-			await _linkRepository.AddEntry(hashedValue, fullUrl);
+			await _linkRepository.AddEntry(hashedValue, contract.Url);
 
 			return Ok(ResponseFactory.Create(true, $"{Request.Scheme}://{Request.Host}/{hashedValue}"));
 		}
